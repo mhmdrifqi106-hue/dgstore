@@ -20,7 +20,8 @@ const paymentMetode = ref(null)
 
 const paymentFees = ref({});
 
-// const errors = ref({});
+// State untuk validasi error real-time
+const errors = ref({});
 
 // Watcher untuk validasi 'name'
 watch(name, (newValue) => {
@@ -42,7 +43,9 @@ watch(whatsapp, (newValue) => {
         delete errors.value.whatsapp;
     }
 });
-// onMounted(() => {
+
+
+onMounted(() => {
     const accordionBtn = document.querySelectorAll(".accordionHead");
 
     accordionBtn.forEach((accordion) => {
@@ -203,10 +206,11 @@ const applyVoucher = async () => {
 }
 
 const confirmOrder = () => {
-    // // Men-trigger validasi untuk semua field sebelum konfirmasi
+    // Men-trigger validasi untuk semua field sebelum konfirmasi
     if (!name.value) errors.value.name = 'Nama tidak boleh kosong.';
     if (!whatsapp.value) errors.value.whatsapp = 'Nomor WhatsApp tidak boleh kosong.';
-    // if (!pickPayment.value || !pickPayment.value.id) {
+    
+    if (!pickPayment.value || !pickPayment.value.id) {
         toastify["error"]?.("Whoops!", "Pilih metode pembayaran dahulu!");
         return;
     }
@@ -769,6 +773,7 @@ function number_format(number, decimals = 0, dec_point = ',', thousands_sep = '.
         </div>
     </div>
 </template>
+
 <style scoped>
 .floating-label-content.has-error .form-control {
     border-color: #dc3545; /* Warna merah untuk error */
