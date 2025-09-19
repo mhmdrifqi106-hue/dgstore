@@ -16,12 +16,12 @@
     "src": "node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2"
   },
   "resources/js/app.js": {
-    "file": "assets/app-Clc7bhpH.js",
+    "file": "assets/app-Dqs__kO9.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-B-Kk8IML.css"
+      "assets/app-DOruGXH4.css"
     ],
     "assets": [
       "assets/fa-brands-400-BdzBFuGj.woff2",
